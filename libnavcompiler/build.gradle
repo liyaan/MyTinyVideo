@@ -1,0 +1,23 @@
+import javax.tools.JavaCompiler
+
+plugins {
+    id 'java-library'
+    id 'kotlin'
+    id 'kotlin-kapt'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'com.alibaba:fastjson:1.2.59'
+    implementation 'com.squareup:javapoet:1.9.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'com.google.auto.service:auto-service:1.0-rc5'
+    implementation project(path: ':libnavannotation')
+    kapt "com.google.auto.service:auto-service:1.0-rc5"
+}
